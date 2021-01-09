@@ -1,5 +1,8 @@
-
+import React from "react";
 import './App.css';
+import { Link } from "react-router-dom";
+
+
 
 const Home = ()=> {
   return (
@@ -14,12 +17,14 @@ const Home = ()=> {
             <h2>Multiplayer Game</h2>
             <p>play against friends</p>
         </div>
-
+ 
         
         </div>
-        <form action="/house">
-            <button className = "play-button">Play</button>
-        </form>
+        <div style={{display:"flex", justifyContent:"center"}}>
+          <Link className="play-button"  to="/house" >Play</Link>
+       
+        </div>
+        
     </div>
 
     
