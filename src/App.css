@@ -18,7 +18,7 @@ body{
 /* ----------------Header----------------- */
 
 .header-container{
-  margin-bottom: 3em;
+  margin-bottom: 2em;
   display: flex;
   align-items: center;
 }
@@ -105,17 +105,26 @@ form {
 
 /* -----------Game Page---------- */
 
-.game-cotainer{
-  margin: 2em 0;
-}
 
-table {
+
+
+#table {
+
+  overflow-x: auto;
+ 
+  table-layout: fixed;
   margin-bottom: 2em;
 }
-table td{
-  border: 1px solid black;
-  padding: 2em;
+#table td{
+
+  
+ width: 75px;
+ height: 75px;
   background-color: white;
+}
+
+.game-container{
+  margin-bottom: 0;
 }
 
 
