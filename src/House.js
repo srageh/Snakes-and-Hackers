@@ -5,7 +5,7 @@ import React, { useState, useEffect } from 'react';
 
 const House = ()=> {
   var x = 0;
-  const [house, setHouse] = useState({imgage:'', name:''});
+  const [house, setHouse] = useState([]);
  
   function startGame(){
 
@@ -25,15 +25,20 @@ const House = ()=> {
 
     //bnt.style.display = 'flex';
 
-    if(value == "Hufflepuff"){
-      fetch('http://hp-api.herokuapp.com/api/characters/staff/')
-      .then(resp=>resp.json())
-      .then(data=> console.log(data))
-    }
-    else{
+    if(value != "Hufflepuff"){
       fetch('http://hp-api.herokuapp.com/api/characters/house/' + value)
       .then(resp=> resp.json())
-      .then(house=> { setHouse({image:house.name, name:house.name }); console.log(house)})
+      .then(house=> { setHouse(house); console.log(house)})
+    }
+   
+    else{
+     
+      
+      setHouse([
+        {name:"Cedric Diggory", image:"./cedric.png"},
+        {name:"Newt Scamender", image:"./newt.jpg"}
+
+      ]);
 
     }
 
@@ -80,8 +85,8 @@ const House = ()=> {
         </div>
         
         <div id="btn" style={{display:"none", justifyContent:"center"}}>
-         
-          <Link className="play-button" onClick={startGame} house={house}   to="/game" >Start Game</Link>
+         {/* {console.log(house)} */}
+          <Link className="play-button" onClick={startGame}    to={ {pathname:"/characters", house:house}} >Start Game</Link>
        
         </div>
       

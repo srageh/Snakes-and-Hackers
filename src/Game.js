@@ -4,16 +4,26 @@ import { Link } from "react-router-dom";
 
 
 
-const Game = ({house})=> {
+const Game = (props)=> {
 
- console.log(house);
+console.log(props);
 
   return (
     <div className="game-container">
         <h3 style={{textAlign:"center", margin:"0.5em 0 0.5em 0", fontSize:"3em"}}>Snakes and Hacks</h3>
-        <div className="flex-2">
+       
+        <div style={{display:"flex"}}>
            
-        
+        <div style={{marginRight:"50px"}} >
+            {props.location.allCharacters.map((charac)=>
+
+                <div style={{marginBottom:"50px"}}>
+                    {console.log(charac.name)}
+                    <h3>{charac.name}</h3>
+                    <img style={{width:"100px", height:"100px", borderRadius:"20px"}} src={charac.image}/>
+                </div>
+            )}
+        </div>
     
         <table id="table">
         
